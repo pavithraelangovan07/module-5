@@ -10,8 +10,28 @@ To write a C Program to find area of rectangle using pointer.
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    float length, width, area;
+    float *ptrLength = &length, *ptrWidth = &width, *ptrArea = &area;
+
+    printf("Enter length of rectangle: ");
+    scanf("%f", ptrLength);
+
+    printf("Enter width of rectangle: ");
+    scanf("%f", ptrWidth);
+
+    *ptrArea = (*ptrLength) * (*ptrWidth);
+
+    printf("Area of rectangle: %.2f\n", *ptrArea);
+
+    return 0;
+}
+```
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/85c2398c-d940-4a55-aa92-ab0e621696c3)
 		       	
 
 
@@ -34,8 +54,26 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <stdlib.h>
+#include <strings.h>
 
+int main() {
+    char *str;
+    str = (char*) malloc(8 * sizeof(char));
+
+    if (str == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+    strcpy(str,"WELCOME");
+    printf("%s\n", str);
+    return 0;
+}
+```
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/d66a891e-8ea1-4183-b25f-46976b1373a7)
 
 
 
@@ -60,9 +98,31 @@ To write a C Program to store the student information and display it using struc
 4.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+struct Employee 
+{
+    int id;
+    char name[50];
+    float age;
+};
+
+int main() 
+{
+    struct Employee employees;
+    scanf("%d", &employees.id);
+    scanf(" %s", employees.name);
+    scanf("%f", &employees.age);
+    printf("Rollno is: %d\nName is: %s\nPercentage is: %.2f\n", employees.id, employees.name, employees.age);
+  
+
+    return 0;
+}
+```
 
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/f9012735-9763-4024-a436-3560e661004b)
 
 
 ## RESULT
@@ -87,9 +147,56 @@ To write a C Program to read and store the data of 3 employees and calculate the
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+struct Employee {
+    char name[50];
+    float basicSalary;
+    float hra;
+    float da;
+    float grossSalary;
+};
 
+int main() {
+    struct Employee emp[3];
+
+    for (int i = 0; i < 3; i++) {
+        printf("Enter details for Employee %d:\n", i + 1);
+        
+        printf("Enter Name: ");
+        scanf("%s", emp[i].name);
+        
+        printf("Enter Basic Salary: ");
+        scanf("%f", &emp[i].basicSalary);
+        
+        printf("Enter HRA: ");
+        scanf("%f", &emp[i].hra);
+        
+        printf("Enter DA: ");
+        scanf("%f", &emp[i].da);
+
+        emp[i].grossSalary = emp[i].basicSalary + emp[i].hra + emp[i].da;
+        printf("\n");
+    }
+
+    printf("Employee Details and Gross Salary:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Employee %d\n", i + 1);
+        printf("Name: %s\n", emp[i].name);
+        printf("Basic Salary: %.2f\n", emp[i].basicSalary);
+        printf("HRA: %.2f\n", emp[i].hra);
+        printf("DA: %.2f\n", emp[i].da);
+        printf("Gross Salary: %.2f\n", emp[i].grossSalary);
+        printf("\n");
+    }
+
+    return 0;
+}
+
+```
  ## OUTPUT
+![image](https://github.com/user-attachments/assets/30a4ab31-678a-47dc-b7e1-c94439a7283b)
 
  
 
@@ -134,9 +241,42 @@ Step 7: Output Loop (i = 0 to 1):
 Step 8: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+struct Student {
+    char name[50];
+    int marks[5];
+    float total;
+    float average;
+};
 
+int main() {
+    struct Student student;
+    int sum = 0;
+
+    printf("Enter student's name: ");
+    scanf("%s", student.name);
+
+    printf("Enter marks for 5 subjects:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Subject %d: ", i + 1);
+        scanf("%d", &student.marks[i]);
+        sum += student.marks[i];
+    }
+
+    student.total = sum;
+    student.average = sum / 5.0;
+
+    printf("\nStudent Name: %s\n", student.name);
+    printf("Total Marks: %.2f\n", student.total);
+    printf("Average Marks: %.2f\n", student.average);
+
+    return 0;
+}
+```
 ## OUTPUT
+![image](https://github.com/user-attachments/assets/26a186f4-0b6c-4953-b0e9-e1ed466563f4)
 
  
 
